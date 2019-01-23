@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport"
+     content="width=device-width, initial-scale=1, user-scalable=yes">
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+</head>
+<title>Moody - Zoológico de Guadalajara</title>
+<body>
+
+<div class="container-fluid">
+  <div class="row">
+      <div class="col-md-1"></div>
+      <div class="col-md-10" style="text-align:center;">
+        <h1 class="display-2" style="font-family: 'Quicksand', sans-serif;">Moody</h1>
+        <h5>Victor Najar, Carlos Pedraza, Carlos Martell</h5>
+        <br>
+        <h1 class="display-4" style="font-family: 'Quicksand', sans-serif;">Relación con ciencia ciudadana</h1>
+        <br>
+        <p style="font-family: 'Quicksand', sans-serif; font-size:15px">
+          Xavier Manteca, profesor de la Universidad Atónoma de Barcelona y fundador del Centro Educativo en Bienestar de Animales de Zoológico en Madrid,
+          dice que <b>los zoológicos y acuarios ayudan a proteger la diversidad.</b> Por lo tanto, tener <b>estándares altos de bienestar</b> animal es una <b>prioridad</b> en los zoológicos.
+          <b>Anomalías en la conducta, alguna enferemedad y problemas de reproducción</b>, son factores <b>importantes</b> para los biólogos y veterinarios del lugar.
+          Bienestar animal incluye aspectos físicos, emociones y comportamientos.
+        </p>
+        <br><br>
+      </div>
+      <div class="col-md-1"></div>
+  </div>
+  <hr>
+
+  <div class="row">
+    <div class="col-md-5">
+      <center>
+        <h1 class="display-4" style="font-family: 'Quicksand', sans-serif;"><i>Demo usuario</i></h1>
+      </center>
+      <br><br>
+      <div class="row" style="text-align:center;">
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+          <div id="menu" class="list-group"></div>
+        </div>
+        <div class="col-md-2"></div>
+      </div>
+      <br><br>
+      <div class="row">
+          <div class="col-md-2"></div>
+          <div id="info" class="col-md-8" style="visibility:hidden">
+            <div class="panel panel-default">
+              <div class="panel-body"><h4 style="text-align:center;"><span id="animal_nombre"></span></h4></div>
+              <center>
+              <img id="imagen" src="https://cumbrepuebloscop20.org/wp-content/uploads/2018/09/jirafa-2.jpg"  class="rounded" alt="Smiley face" height="60%" width="55%">
+            <br>
+            <br>
+            <button type="button" class="btn btn-success">Contento</button>
+            <button type="button" class="btn btn-warning">Neutral</button>
+            <button type="button" class="btn btn-danger">Enojado</button> <br> <br>
+            <button type="button" class="btn btn-info btn-lg" aria-label="Left Align">
+              <span class="glyphicon glyphicon-camera" aria-hidden="true"></span>
+            </button> <br> <br>
+            Limpieza:
+            <div class="btn-group" role="group" aria-label="...">
+              <button type="button" class="btn btn-default">1</button>
+              <button type="button" class="btn btn-default">2</button>
+              <button type="button" class="btn btn-default">3</button>
+              <button type="button" class="btn btn-default">4</button>
+              <button type="button" class="btn btn-default">5</button>
+            </div> <br> <br>
+            <div class="form-group">
+                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+            </div><br>
+            <button type="button" class="btn btn-default btn-lg" aria-label="Left Align"> ENVIAR </button>
+            </center>
+            <br>
+            </div>
+          </div>
+          <div class="col-md-2"></div>
+      </div>
+    </div>
+    <div class="col-md-1"></div>
+    <div class="col-md-5">
+      <center>
+        <h1 class="display-4" style="font-family: 'Quicksand', sans-serif;"><i>Demo Zoológico</i></h1>
+      </center>
+      <br><br>
+      <table class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="col">Especie</th>
+        <th scope="col">Número de reportes</th>
+        <th scope="col">Estado anímico</th>
+        <th scope="col">Limpieza</th>
+        <th scope="col">Actualizado</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="table-success">
+        <th scope="row">Jirafa</th>
+        <td>35</td>
+        <td>Bueno</td>
+        <td>4/5</td>
+        <td>Hace 10 min.</td>
+      </tr>
+      <tr class="table-danger">
+        <th scope="row">Oso polar</th>
+        <td>57</td>
+        <td>Malo</td>
+        <td>3/5</td>
+        <td>22/01/19, 14:30</td>
+      </tr>
+      <tr class="table-warning">
+        <th scope="row">Tigre de Bengala</th>
+        <td>23</td>
+        <td>Neutral</td>
+        <td>3/5</td>
+        <td>Hace 2 hrs.</td>
+      </tr>
+      <tr class="table-success">
+        <th scope="row">Gorila</th>
+        <td>107</td>
+        <td>Bueno</td>
+        <td>4/5</td>
+        <td>19/01/19, 17:46</td>
+      </tr>
+      <tr class="table-success">
+        <th scope="row">Flamingos</th>
+        <td>68</td>
+        <td>Bueno</td>
+        <td>5/5</td>
+        <td>Hace 30 segundos</td>
+      </tr>
+    </tbody>
+  </table>
+  <img src="http://www.designbootstrap.com/wp-content/uploads/2015/03/bootstrap-line-chart-chart-js-back.png" width="100%"></img>
+    </div>
+  </div>
+<hr>
+
+<script>
+  imagenes = [
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/Lion_waiting_in_Namibia.jpg/440px-Lion_waiting_in_Namibia.jpg',
+    'https://cumbrepuebloscop20.org/wp-content/uploads/2018/09/jirafa-2.jpg',
+    'http://www.cambiodemichoacan.com.mx/fotos/_a05e0baa92b30f39c21649bad2ff16ba,yupik.jpeg'
+  ];
+  var info_div, imagen, animal_nombre;
+  function clicked(animal){
+    info_div.style.visibility = "visible";
+    imagen.src = imagenes[animal];
+    animal_nombre.innerHTML = animales[animal];
+    // console.log("clicked()");
+  };
+
+  window.onload = function () {
+   animales = ['León Africano', 'Jirafa', 'Oso Polar'];
+   info_div = document.getElementById("info");
+   imagen = document.getElementById("imagen");
+   animal_nombre = document.getElementById("animal_nombre");
+   for(var i=0; i<animales.length; i++){
+     console.log(animales[i]);
+     $( "#menu" ).append(
+       '<button type="button" class="list-group-item" style="text-align:center"'
+       +'onclick=clicked('+i+')>'
+       +animales[i]
+       +'</button>'
+     );
+   }
+  }
+</script>
+
+</body>
+</html>
