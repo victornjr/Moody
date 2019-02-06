@@ -12,7 +12,31 @@
 </head>
 <title>Moody - Zoológico de Guadalajara</title>
 <body>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <h3>Moody</h3>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav">
+        <li class="nav-item active">
+          <a class="nav-link" href="index.html">Project Overview <span class="sr-only">(current)</span></a>
+        </li>
 
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+           Demos
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item" href="demo1.html">Demo 1</a>
+            <a class="dropdown-item" href="demo2.html">Demo 2 - 06/02/19</a>
+
+          </div>
+        </li>
+      </ul>
+    </div>
+  </nav>
+<div class="container-fluid">
   <div class="row">
       <div class="col-md-1"></div>
       <div class="col-md-10" style="text-align:center;">
@@ -142,36 +166,7 @@
   </div>
 <hr>
 
-<script>
-  imagenes = [
-    'https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/Lion_waiting_in_Namibia.jpg/440px-Lion_waiting_in_Namibia.jpg',
-    'https://cumbrepuebloscop20.org/wp-content/uploads/2018/09/jirafa-2.jpg',
-    'http://www.cambiodemichoacan.com.mx/fotos/_a05e0baa92b30f39c21649bad2ff16ba,yupik.jpeg'
-  ];
-  var info_div, imagen, animal_nombre;
-  function clicked(animal){
-    info_div.style.visibility = "visible";
-    imagen.src = imagenes[animal];
-    animal_nombre.innerHTML = animales[animal];
-    // console.log("clicked()");
-  };
 
-  window.onload = function () {
-   animales = ['León Africano', 'Jirafa', 'Oso Polar'];
-   info_div = document.getElementById("info");
-   imagen = document.getElementById("imagen");
-   animal_nombre = document.getElementById("animal_nombre");
-   for(var i=0; i<animales.length; i++){
-     console.log(animales[i]);
-     $( "#menu" ).append(
-       '<button type="button" class="list-group-item" style="text-align:center"'
-       +'onclick=clicked('+i+')>'
-       +animales[i]
-       +'</button>'
-     );
-   }
-  }
-</script>
 
 </body>
 </html>
