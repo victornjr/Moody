@@ -30,6 +30,7 @@
           <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
             <a class="dropdown-item active" href="#">Demo 1</a>
             <a class="dropdown-item" href="demo2.html">Demo 2 - 06/02/19</a>
+            <a class="dropdown-item" href="demo3.html">Demo 3 - 13/02/19</a>
 
           </div>
         </li>
@@ -40,7 +41,7 @@
   <div class="row">
       <div class="col-md-1"></div>
       <div class="col-md-10" style="text-align:center;">
-        <h1 class="display-3" style="font-family: 'Quicksand', sans-serif;">Demo 1</h1>
+        <h1 class="display-3" style="font-family: 'Quicksand', sans-serif;">Demo 3</h1>
         <h5>Victor Najar, Carlos Pedraza, Carlos Martell</h5>
         <br>
 
@@ -74,9 +75,9 @@
             <br>
             ¿En qué estado de ánimo se encuentra?
             <br><br>
-            <button type="button" class="btn btn-success">Bueno</button>
-            <button type="button" class="btn btn-warning">Regular</button>
-            <button type="button" class="btn btn-danger">Malo</button> <br> <br>
+            <button type="button" class="btn btn-success" id="btnBueno" onclick="estado('bueno')">Bueno</button>
+            <button type="button" class="btn btn-warning" id="btnRegular" onclick="estado('regular')">Regular</button>
+            <button type="button" class="btn btn-danger" id="btnMalo" onclick="estado('malo')">Malo</button> <br> <br>
             <button type="button" class="btn btn-info btn-lg" aria-label="Left Align">
               <span class="glyphicon glyphicon-camera" aria-hidden="true"></span>
             </button> <br> <br>
@@ -116,40 +117,47 @@
       </tr>
     </thead>
     <tbody>
-      <tr class="table-success">
+      <tr class="table-success" id="Jirafa">
         <th scope="row">Jirafa</th>
         <td>35</td>
         <td>Bueno</td>
         <td>4/5</td>
         <td>Hace 10 min.</td>
       </tr>
-      <tr class="table-danger">
+      <tr class="table-danger" id="Oso polar">
         <th scope="row">Oso polar</th>
         <td>57</td>
         <td>Malo</td>
         <td>3/5</td>
         <td>22/01/19, 14:30</td>
       </tr>
-      <tr class="table-warning">
+      <tr class="table-warning" id="Tigre de Bengala">
         <th scope="row">Tigre de Bengala</th>
         <td>23</td>
         <td>Neutral</td>
         <td>3/5</td>
         <td>Hace 2 hrs.</td>
       </tr>
-      <tr class="table-success">
+      <tr class="table-success" id="Gorila">
         <th scope="row">Gorila</th>
         <td>107</td>
         <td>Bueno</td>
         <td>4/5</td>
         <td>19/01/19, 17:46</td>
       </tr>
-      <tr class="table-success">
+      <tr class="table-success" id="Flamingos">
         <th scope="row">Flamingos</th>
         <td>68</td>
         <td>Bueno</td>
         <td>5/5</td>
         <td>Hace 30 segundos</td>
+      </tr>
+      <tr class="table-warning" id="Leon">
+        <th scope="row">León Africano</th>
+        <td>73</td>
+        <td>Regular</td>
+        <td>3/5</td>
+        <td>Hace 30 minutos</td>
       </tr>
     </tbody>
   </table>
@@ -187,6 +195,11 @@
        +'</button>'
      );
    }
+  }
+
+  function estado(mood){
+    console.log(mood + " : " + animal_nombre.innerHTML.split(" ")[0]);
+
   }
 </script>
 
