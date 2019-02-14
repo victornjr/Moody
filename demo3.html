@@ -124,14 +124,14 @@
         <td>4/5</td>
         <td>Hace 10 min.</td>
       </tr>
-      <tr class="table-danger" id="Oso polar">
+      <tr class="table-danger" id="Oso">
         <th scope="row">Oso polar</th>
         <td>57</td>
         <td>Malo</td>
         <td>3/5</td>
         <td>22/01/19, 14:30</td>
       </tr>
-      <tr class="table-warning" id="Tigre de Bengala">
+      <tr class="table-warning" id="Tigre">
         <th scope="row">Tigre de Bengala</th>
         <td>23</td>
         <td>Neutral</td>
@@ -195,7 +195,7 @@
    imagen = document.getElementById("imagen");
    animal_nombre = document.getElementById("animal_nombre");
    for(var i=0; i<animales.length; i++){
-     console.log(animales[i]);
+     //console.log(animales[i]);
      $( "#menu" ).append(
        '<button type="button" class="list-group-item" style="text-align:center"'
        +'onclick=clicked('+i+')>'
@@ -206,7 +206,19 @@
   }
 
   function estado(mood){
-    console.log(mood + " : " + animal_nombre.innerHTML.split(" ")[0]);
+    var animal_nombre_id = animal_nombre.innerHTML.split(" ")[0];
+    //console.log(mood + " : " + animal_nombre_id);
+    var animal_id = document.getElementById(animal_nombre_id);
+
+    animal_id.childNodes[3].innerHTML = parseInt(animal_id.childNodes[3].innerHTML) + 1;
+
+    if(mood === "bueno"){
+      animal_id.className = "table-success";
+    }else if (mood === "regular") {
+      animal_id.className = "table-warning";
+    }else{
+      animal_id.className = "table-danger";
+    }
 
   }
 </script>
