@@ -2,10 +2,10 @@ const express = require('express');
 const path = require('path');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
-const config = require('./secret.json');
 const Schema = mongoose.Schema;
+const db_uri = process.env.db_uri;
 
-mongoose.connect(config.db_uri)
+mongoose.connect(db_uri)
         .then(db => console.log('db connected'))
         .catch(err => console.log('ERROR: ' + err));
 
