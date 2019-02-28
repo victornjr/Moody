@@ -69,14 +69,18 @@ app.post('/visitors/penguin',function(req, res){
     echados_en_nidos: body['echados_en_nidos'][1],
     alimentando_crias: body['alimentando_crias'][1]
   });
-  nuevo_registro.save(function(){
-    Pinguino.find(function(err, doc){
+  nuevo_registro.save(function(err){
+    if(err){
+      console.log("ERROR: ", err);
+    } else {
       res.send("datos guardados.");
-      // console.log(doc)
-      for (entry in doc){
-        console.log(doc[entry]['_id']);
-      }
-    });
+      Pinguino.find(function(err, doc){
+        // console.log(doc)
+        for (entry in doc){
+          console.log(doc[entry]['_id']);
+        }
+      });
+    }
   });
 });
 
