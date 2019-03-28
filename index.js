@@ -4,6 +4,7 @@ const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 const db_uri = process.env.db_uri;
+const cookies = require('./visitors/js/form')
 
 mongoose.connect(db_uri, {useNewUrlParser: true})
         .then(db => console.log('db connected'))
@@ -40,19 +41,28 @@ app.use(function(req, res, next){
 });
 
 app.get('/', function(req,res){
+  console.log("GET /");
   res.send('ok');
 });
 
 app.get('/visitors/penguin',function(req, res){
-  console.log("penguin...");
+  console.log("GET /penguin");
   res.sendFile(
     'visitors/penguin.html'
     ,{ root: path.join(__dirname, './') }
   );
 });
 
+app.get('/visitors/done',function(req, res){
+  console.log("GET /done");
+  res.sendFile(
+    'visitors/done.html'
+    ,{ root: path.join(__dirname, './') }
+  );
+});
+
 app.post('/visitors/penguin',function(req, res){
-  console.log("enviar...");
+  console.log("POST /visitors/penguin");
   var body = req.body;
   console.log(body);
   var nuevo_registro = new Pinguino({
@@ -73,7 +83,10 @@ app.post('/visitors/penguin',function(req, res){
     if(err){
       console.log("ERROR: ", err);
     } else {
-      res.send("datos guardados.");
+      res.sendFile(
+        'visitors/success.html'
+        ,{ root: path.join(__dirname, './') }
+      );
       Pinguino.find(function(err, doc){
         // console.log(doc)
         for (entry in doc){
