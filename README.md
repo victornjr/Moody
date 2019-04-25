@@ -5,6 +5,9 @@
 - MongoDB (database)
 - JavaScript, HTML5, CSS 
 
+## User Guide
+https://docs.google.com/document/d/1EO76c7XOyqi8w4lr9s9Od6gZDPFmanHWzKvHjmsQWNc
+
 ## Installation
 $```go get github.com/mongodb/mongo-go-driver```<br>
 The output of this may look like a warning stating something like _package github.com/mongodb/mongo-go-driver: no Go files in (...)._<br>
