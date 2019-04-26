@@ -151,7 +151,7 @@ func done(respuesta http.ResponseWriter, solicitud *http.Request){
   http.ServeFile(respuesta, solicitud, "visitors/done.html")
 }
 var addr = "8080"
-var port_error = nil
+var port_error = fmt.Errorf("$PORT not set")
 func dashboard(respuesta http.ResponseWriter, solicitud *http.Request){
   variab := data{Port: addr}
 	p, _ := template.ParseFiles("dashboard.html")
