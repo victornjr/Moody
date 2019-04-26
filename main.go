@@ -41,6 +41,10 @@ type Pinguino struct {
   Alimentando_crias   string    `default:"-", json:alimentando_crias`
 }
 
+type data struct {
+	Port    string
+}
+
 
 func connect_to_db() {
   db_uri := os.Getenv("db_uri")
