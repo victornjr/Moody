@@ -1,1 +1,1 @@
-web: Moody.exe
+web: Moody
