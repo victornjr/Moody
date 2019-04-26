@@ -143,7 +143,7 @@
       window.onload = function() {
         let table = document.getElementById("mytable");
         let row = table.insertRow(-1);
-        let url = "http://localhost:"+{{.Port}}+"/getjson"
+        let url = "https://zoo-gdl.herokuapp.com/getjson"
 
         $.getJSON(url, function( json ) {
             //console.log(json[0].caminando);

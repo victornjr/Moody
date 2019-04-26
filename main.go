@@ -41,10 +41,6 @@ type Pinguino struct {
   Alimentando_crias   string    `default:"-", json:alimentando_crias`
 }
 
-type data struct {
-	Port    string
-}
-
 
 func connect_to_db() {
   db_uri := os.Getenv("db_uri")
@@ -153,10 +149,7 @@ func done(respuesta http.ResponseWriter, solicitud *http.Request){
 var addr = "8080"
 var port_error = fmt.Errorf("$PORT not set")
 func dashboard(respuesta http.ResponseWriter, solicitud *http.Request){
-  variab := data{Port: addr}
-	p, _ := template.ParseFiles("dashboard.html")
-	p.Execute(respuesta, variab)
-  // http.ServeFile(respuesta, solicitud, "dashboard.html")
+  http.ServeFile(respuesta, solicitud, "dashboard.html")
 }
 func demo1(respuesta http.ResponseWriter, solicitud *http.Request){
   http.ServeFile(respuesta, solicitud, "demo1.html")
