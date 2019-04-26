@@ -42,7 +42,7 @@ type Pinguino struct {
 }
 
 type data struct {
-	Port    string
+	Port    int
 }
 
 
