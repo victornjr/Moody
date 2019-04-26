@@ -3,7 +3,7 @@
 ## Used Technologies
 - Go (server)
 - MongoDB (database)
-- JavaScript, HTML5, CSS 
+- JavaScript, HTML5, CSS
 
 ## User Guide
 https://docs.google.com/document/d/1EO76c7XOyqi8w4lr9s9Od6gZDPFmanHWzKvHjmsQWNc
@@ -19,5 +19,6 @@ $```go get github.com/mongodb/mongo-go-driver```<br>
 
 ## Usage
 $ ```export db_uri=your_mongo_db_uri```<br>
+$ ```export PORT=your_port```<br>
 $ ```go run main.go```<br>
-Site is now available at http:localhost:8080
+Site is now available at http:localhost:yout_port
