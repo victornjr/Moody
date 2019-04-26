@@ -10,10 +10,15 @@ import (
     "encoding/json"
 	  "net/http"
 
-    "go.mongodb.org/mongo-driver/bson"
-    "go.mongodb.org/mongo-driver/bson/primitive"
-    "go.mongodb.org/mongo-driver/mongo"
-    "go.mongodb.org/mongo-driver/mongo/options"
+    "github.com/mongodb//mongo-driver/bson"
+    "github.com/mongodb/mongo-driver/bson/primitive"
+    "github.com/mongodb/mongo-driver/mongo"
+    "github.com/mongodb/mongo-driver/mongo/options"
+
+    // "go.mongodb.org/mongo-driver/bson"
+    // "go.mongodb.org/mongo-driver/bson/primitive"
+    // "go.mongodb.org/mongo-driver/mongo"
+    // "go.mongodb.org/mongo-driver/mongo/options"
 )
 
 var pinguinos_collection *mongo.Collection
