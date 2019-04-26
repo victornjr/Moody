@@ -112,9 +112,9 @@ func penguin(respuesta http.ResponseWriter, solicitud *http.Request){
       solicitud.PostForm["caminando"][1], solicitud.PostForm["de_pie"][1],
       solicitud.PostForm["de_panza"][1],
       // solicitud.PostForm["limpiandose"][1],
-      "NOPE",
+      "-",
       // solicitud.PostForm["limpiandose_en_agua"][1],
-      "NOPE",
+      "-",
       solicitud.PostForm["nadando"][1],
       solicitud.PostForm["interactuando"][1], solicitud.PostForm["peleando"][1],
       solicitud.PostForm["cargando_piedras"][1], solicitud.PostForm["haciendo_nidos"][1],
@@ -149,7 +149,6 @@ func primerParcial(respuesta http.ResponseWriter, solicitud *http.Request){
 
 
 func main() {
-  fmt.Println("starting...")
   log.SetOutput(os.Stderr)
   log.SetOutput(os.Stdout)
 
@@ -165,5 +164,6 @@ func main() {
   http.HandleFunc("/primerParcial", primerParcial)
   http.Handle("/public/", http.StripPrefix("/public/", http.FileServer(http.Dir("public"))))
 
+  fmt.Println("Listening on :8080 ...")
 	http.ListenAndServe(":8080", nil)
 }

@@ -12,6 +12,7 @@ github.com/
 go.mongodb.org/
 golang.org/
 dep
+*.exe
 
 ### macOS ###
 # General
