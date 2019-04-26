@@ -42,7 +42,7 @@ type Pinguino struct {
 }
 
 type data struct {
-	Port    int
+	Port    string
 }
 
 
@@ -150,8 +150,8 @@ func home(respuesta http.ResponseWriter, solicitud *http.Request){
 func done(respuesta http.ResponseWriter, solicitud *http.Request){
   http.ServeFile(respuesta, solicitud, "visitors/done.html")
 }
-var addr = 8080
-var port_error = nil
+var addr := "8080"
+var port_error := nil
 func dashboard(respuesta http.ResponseWriter, solicitud *http.Request){
   variab := data{Port: addr}
 	p, _ := template.ParseFiles("dashboard.html")
