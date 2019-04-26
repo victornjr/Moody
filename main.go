@@ -146,8 +146,6 @@ func home(respuesta http.ResponseWriter, solicitud *http.Request){
 func done(respuesta http.ResponseWriter, solicitud *http.Request){
   http.ServeFile(respuesta, solicitud, "visitors/done.html")
 }
-var addr = "8080"
-var port_error = fmt.Errorf("$PORT not set")
 func dashboard(respuesta http.ResponseWriter, solicitud *http.Request){
   http.ServeFile(respuesta, solicitud, "dashboard.html")
 }
@@ -181,8 +179,8 @@ func main() {
   http.HandleFunc("/primerParcial", primerParcial)
   http.Handle("/public/", http.StripPrefix("/public/", http.FileServer(http.Dir("public"))))
 
-  addr, port_error = determineListenAddress()
-  if port_error != nil { log.Fatal(port_error) }
+  addr, error := determineListenAddress()
+  if error != nil { log.Fatal(error) }
   fmt.Println("Listening on "+addr+" ...")
 	http.ListenAndServe(addr, nil)
 }
