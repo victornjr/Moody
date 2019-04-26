@@ -55,6 +55,15 @@ func connect_to_db() {
 }
 
 
+func determineListenAddress() (string, error) {
+  port := os.Getenv("PORT")
+  if port == "" {
+    return "", fmt.Errorf("$PORT not set")
+  }
+  return ":" + port, nil
+}
+
+
 func add_pinguino(caminando string, de_pie string, de_panza string,
 limpiandose string, limpiandose_en_agua string, nadando string,
 interactuando string, peleando string, cargando_piedras string,
@@ -169,6 +178,8 @@ func main() {
   http.HandleFunc("/primerParcial", primerParcial)
   http.Handle("/public/", http.StripPrefix("/public/", http.FileServer(http.Dir("public"))))
 
-  fmt.Println("Listening on :8080 ...")
-	http.ListenAndServe(":8080", nil)
+  addr, err := determineListenAddress()
+  if err != nil { log.Fatal(err) }
+  fmt.Println("Listening on "+addr+" ...")
+	http.ListenAndServe(addr, nil)
 }
