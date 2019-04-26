@@ -143,7 +143,7 @@
       window.onload = function() {
         let table = document.getElementById("mytable");
         let row = table.insertRow(-1);
-        let url = "http://localhost:8080/getjson"
+        let url = "http://localhost:"+{{.Port}}+"/getjson"
 
         $.getJSON(url, function( json ) {
             //console.log(json[0].caminando);
