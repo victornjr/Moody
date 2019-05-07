@@ -62,7 +62,9 @@
 
                             <ul class="nav flex-column">
                                 <li class="nav-item ">
-                                    <a class="nav-link active" href="index.html">Pingüino Adelie y Gentoo</a>
+                                    <a class="nav-link active" onclick="populate_table(0)">Pingüino Adelie y Gentoo</a>
+                                    <a class="nav-link active" onclick="populate_table(1)">León Africano</a>
+                                    <a class="nav-link active" onclick="populate_table(2)">Elefante Africano</a>
                                 </li>
 
                             </ul>
@@ -140,27 +142,51 @@
     <script src="/public/vendor/charts/c3charts/C3chartjs.js"></script>
     <script src="/public/libs/js/dashboard-ecommerce.js"></script>
     <script>
-      window.onload = function() {
-        let table = document.getElementById("mytable");
-        let row = table.insertRow(-1);
-        let url = "https://zoo-gdl.herokuapp.com/getjson"
-
-        $.getJSON(url, function( json ) {
-            //console.log(json[0].caminando);
-            for (var k =0; k<json.length;k++){
-                let dic = json[k];
-                //console.log(dic);
-
-                let i = 0;
-                for(let key in dic){
-                    let myRow = row.insertCell(i);
-                    myRow.innerHTML= dic[key];
-                    i++;
-                }
-                row = table.insertRow(1);
-            }
-        });
+    var pinguinos_json, leones_json, elefantes_json;
+    var table;
+    function populate_table(mode){
+      let row = table.insertRow(-1);
+      let json;
+      if(mode==0){
+        json = pinguinos_json;
       }
+      else if(mode==1){
+        json = leones_json;
+      }
+      else if(mode==2){
+        json = elefantes_json;
+      }
+      for (var k =0; k<json.length;k++){
+        let dic = json[k];
+        //console.log(dic);
+
+        let i = 0;
+        for(let key in dic){
+          let myRow = row.insertCell(i);
+          myRow.innerHTML=dic[key];
+          i++;
+        }
+        row = table.insertRow(1);
+      }
+    }
+
+    window.onload = function() {
+      table = document.getElementById("mytable");
+
+      let url_pinguinos = "https://zoo-gdl.herokuapp.com/getjson_pinguinos";
+      let url_leones = "https://zoo-gdl.herokuapp.com/getjson_leones";
+      let url_elefantes = "https://zoo-gdl.herokuapp.com/getjson_elefantes";
+
+      $.getJSON(url_pinguinos, function( json ) {
+          pinguinos_json = json;
+      });
+      $.getJSON(url_leones, function( json ) {
+          leones_json = json;
+      });
+      $.getJSON(url_elefantes, function( json ) {
+          elefantes_json = json;
+      });
+    }
     </script>
 
 
