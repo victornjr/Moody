@@ -303,7 +303,9 @@ func main() {
 
   connect_to_db()
   http.HandleFunc("/", home)
-  http.HandleFunc("/getjson", getjson)
+  http.HandleFunc("/getjson_pinguinos", getjson_pinguinos)
+  http.HandleFunc("/getjson_leones", getjson_leones)
+  http.HandleFunc("/getjson_elefantes", getjson_elefantes)
   http.HandleFunc("/visitors/penguin", penguin)
   http.HandleFunc("/visitors/lion", lion)
   http.HandleFunc("/visitors/elephant", elephant)
