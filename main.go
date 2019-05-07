@@ -105,7 +105,7 @@ func add_lion(dormido string, jugando string, lamiendo string,
   defer cancel()
 
   res, err := leones_collection.InsertOne(context, bson.M{
-    "dormido": domido, "jugando": jugando, "lamiendo": lamiendo,
+    "dormido": dormido, "jugando": jugando, "lamiendo": lamiendo,
     "nadando": nadando, "rugiendo": rugiendo})
   if err != nil { log.Fatal(err) }
   fmt.Printf( "new leon created with id: %s\n", res.InsertedID.(primitive.ObjectID).Hex())
