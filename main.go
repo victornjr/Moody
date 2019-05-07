@@ -160,7 +160,7 @@ func obtain_all_leones(collection *mongo.Collection, ctx context.Context) []Leon
   return results
 }
 
-func obtain_all_leones(collection *mongo.Collection, ctx context.Context) []Elefante {
+func obtain_all_elefantes(collection *mongo.Collection, ctx context.Context) []Elefante {
   var results []Elefante
   filter := bson.M{}
   findOptions := options.Find()
