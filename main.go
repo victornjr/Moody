@@ -22,10 +22,40 @@ import (
 )
 
 var pinguinos_collection *mongo.Collection
+var leones_collection *mongo.Collection
+var elefantes_collection *mongo.Collection
 var ctx context.Context
 
 
 type Pinguino struct {
+  Caminando           string    `default:"-", json:caminando`
+  De_pie              string    `default:"-", json:de_pie`
+  De_panza            string    `default:"-", json:de_panza`
+  Limpiandose         string    `default:"-", json:limpiandose`
+  Limpiandose_en_agua string    `default:"-", json:limpiandose_en_agua`
+  Nadando             string    `default:"-", json:nadando`
+  Interactuando       string    `default:"-", json:interactuando`
+  Peleando            string    `default:"-", json:peleando`
+  Cargando_piedras    string    `default:"-", json:cargando_piedras`
+  Haciendo_nidos      string    `default:"-", json:haciendo_nidos`
+  Echados_en_nidos    string    `default:"-", json:echados_en_nidos`
+  Alimentando_crias   string    `default:"-", json:alimentando_crias`
+}
+type Elefante struct {
+  Caminando           string    `default:"-", json:caminando`
+  De_pie              string    `default:"-", json:de_pie`
+  De_panza            string    `default:"-", json:de_panza`
+  Limpiandose         string    `default:"-", json:limpiandose`
+  Limpiandose_en_agua string    `default:"-", json:limpiandose_en_agua`
+  Nadando             string    `default:"-", json:nadando`
+  Interactuando       string    `default:"-", json:interactuando`
+  Peleando            string    `default:"-", json:peleando`
+  Cargando_piedras    string    `default:"-", json:cargando_piedras`
+  Haciendo_nidos      string    `default:"-", json:haciendo_nidos`
+  Echados_en_nidos    string    `default:"-", json:echados_en_nidos`
+  Alimentando_crias   string    `default:"-", json:alimentando_crias`
+}
+type Leon struct {
   Caminando           string    `default:"-", json:caminando`
   De_pie              string    `default:"-", json:de_pie`
   De_panza            string    `default:"-", json:de_panza`
@@ -72,6 +102,40 @@ haciendo_nidos string, echados_en_nidos string, alimentando_crias string) {
   defer cancel()
 
   res, err := pinguinos_collection.InsertOne(context, bson.M{
+    "caminando": caminando, "de_pie": de_pie, "de_panza": de_panza,
+    "limpiandose": limpiandose, "limpiandose_en_agua": limpiandose_en_agua,
+    "nadando": nadando, "interactuando": interactuando, "peleando": peleando,
+    "cargando_piedras": cargando_piedras, "haciendo_nidos": haciendo_nidos,
+    "echados_en_nidos": echados_en_nidos, "alimentando_crias": alimentando_crias})
+  if err != nil { log.Fatal(err) }
+  fmt.Printf( "new pinguino created with id: %s\n", res.InsertedID.(primitive.ObjectID).Hex())
+}
+
+func add_lion(caminando string, de_pie string, de_panza string,
+limpiandose string, limpiandose_en_agua string, nadando string,
+interactuando string, peleando string, cargando_piedras string,
+haciendo_nidos string, echados_en_nidos string, alimentando_crias string) {
+  context, cancel := context.WithTimeout(context.Background(), 10*time.Second)
+  defer cancel()
+
+  res, err := leones_collection.InsertOne(context, bson.M{
+    "caminando": caminando, "de_pie": de_pie, "de_panza": de_panza,
+    "limpiandose": limpiandose, "limpiandose_en_agua": limpiandose_en_agua,
+    "nadando": nadando, "interactuando": interactuando, "peleando": peleando,
+    "cargando_piedras": cargando_piedras, "haciendo_nidos": haciendo_nidos,
+    "echados_en_nidos": echados_en_nidos, "alimentando_crias": alimentando_crias})
+  if err != nil { log.Fatal(err) }
+  fmt.Printf( "new pinguino created with id: %s\n", res.InsertedID.(primitive.ObjectID).Hex())
+}
+
+func add_elephant(caminando string, de_pie string, de_panza string,
+limpiandose string, limpiandose_en_agua string, nadando string,
+interactuando string, peleando string, cargando_piedras string,
+haciendo_nidos string, echados_en_nidos string, alimentando_crias string) {
+  context, cancel := context.WithTimeout(context.Background(), 10*time.Second)
+  defer cancel()
+
+  res, err := elefantes_collection.InsertOne(context, bson.M{
     "caminando": caminando, "de_pie": de_pie, "de_panza": de_panza,
     "limpiandose": limpiandose, "limpiandose_en_agua": limpiandose_en_agua,
     "nadando": nadando, "interactuando": interactuando, "peleando": peleando,
@@ -138,6 +202,59 @@ func penguin(respuesta http.ResponseWriter, solicitud *http.Request){
 }
 
 
+func lion(respuesta http.ResponseWriter, solicitud *http.Request){
+  switch solicitud.Method {
+  case "GET":
+    http.ServeFile(respuesta, solicitud, "visitors/lion.html")
+  case "POST":
+    if err := solicitud.ParseForm(); err != nil { log.Fatal(err) }
+    fmt.Printf("postForm: %+v\n", solicitud.PostForm)
+    // fmt.Printf("caminando: %+v\n", solicitud.PostForm["caminando"][0:2])
+    // for _, elem := range solicitud.PostForm["caminando"] {
+    //   fmt.Printf("val caminando: %+v\n", elem)
+    // }
+    add_lion(
+      solicitud.PostForm["caminando"][1], solicitud.PostForm["de_pie"][1],
+      solicitud.PostForm["de_panza"][1],
+      // solicitud.PostForm["limpiandose"][1],
+      "-",
+      // solicitud.PostForm["limpiandose_en_agua"][1],
+      "-",
+      solicitud.PostForm["nadando"][1],
+      solicitud.PostForm["interactuando"][1], solicitud.PostForm["peleando"][1],
+      solicitud.PostForm["cargando_piedras"][1], solicitud.PostForm["haciendo_nidos"][1],
+      solicitud.PostForm["echados_en_nidos"][1], solicitud.PostForm["alimentando_crias"][1])
+    http.ServeFile(respuesta, solicitud, "visitors/success.html")
+  }
+}
+
+func elephant(respuesta http.ResponseWriter, solicitud *http.Request){
+  switch solicitud.Method {
+  case "GET":
+    http.ServeFile(respuesta, solicitud, "visitors/elephant.html")
+  case "POST":
+    if err := solicitud.ParseForm(); err != nil { log.Fatal(err) }
+    fmt.Printf("postForm: %+v\n", solicitud.PostForm)
+    // fmt.Printf("caminando: %+v\n", solicitud.PostForm["caminando"][0:2])
+    // for _, elem := range solicitud.PostForm["caminando"] {
+    //   fmt.Printf("val caminando: %+v\n", elem)
+    // }
+    add_lion(
+      solicitud.PostForm["caminando"][1], solicitud.PostForm["de_pie"][1],
+      solicitud.PostForm["de_panza"][1],
+      // solicitud.PostForm["limpiandose"][1],
+      "-",
+      // solicitud.PostForm["limpiandose_en_agua"][1],
+      "-",
+      solicitud.PostForm["nadando"][1],
+      solicitud.PostForm["interactuando"][1], solicitud.PostForm["peleando"][1],
+      solicitud.PostForm["cargando_piedras"][1], solicitud.PostForm["haciendo_nidos"][1],
+      solicitud.PostForm["echados_en_nidos"][1], solicitud.PostForm["alimentando_crias"][1])
+    http.ServeFile(respuesta, solicitud, "visitors/success.html")
+  }
+}
+
+
 func home(respuesta http.ResponseWriter, solicitud *http.Request){
   // http.ServeFile(respuesta, solicitud, solicitud.URL.Path[1:])
   http.ServeFile(respuesta, solicitud, "index.html")
@@ -170,6 +287,8 @@ func main() {
   http.HandleFunc("/", home)
   http.HandleFunc("/getjson", getjson)
   http.HandleFunc("/visitors/penguin", penguin)
+  http.HandleFunc("/visitors/lion", lion)
+  http.HandleFunc("/visitors/elephant", elephant)
   http.HandleFunc("/visitors/done", done)
   http.HandleFunc("/dashboard", dashboard)
   http.HandleFunc("/demo1", demo1)

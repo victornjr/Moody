@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>León Africano</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link rel="stylesheet" type="text/css" href="/public/vendor/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="/public/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="/public/vendor/animate/animate.css">
+	<link rel="stylesheet" type="text/css" href="/public/vendor/css-hamburgers/hamburgers.min.css">
+	<link rel="stylesheet" type="text/css" href="/public/vendor/animsition/css/animsition.min.css">
+	<link rel="stylesheet" type="text/css" href="/public/vendor/select2/select2.min.css">
+	<link rel="stylesheet" type="text/css" href="/public/vendor/daterangepicker/daterangepicker.css">
+	<link rel="stylesheet" type="text/css" href="/public/css/util.css">
+	<link rel="stylesheet" type="text/css" href="/public/css/main.css">
+</head>
+<body>
+
+	<div class="container-contact100">
+
+		<div class="wrap-contact100">
+			<div class="contact100-form-title" style="background-image: url(/public/images/bg-01.jpg);">
+				<span class="contact100-form-title-1">
+					León
+				</span>
+
+				<span class="contact100-form-title-2">
+					Especie: Africano
+				</span>
+			</div>
+
+			<form class="contact100-form validate-form" method = "post">
+
+				<div  class="wrap-input100"><span id="fecha"></span><br><br>
+						<br>
+				</div>
+
+				<div class="wrap-input100 validate-input">
+					<span class="label-input100">¿Hay ejemplares dormidos o acostados solos?</span><br><br>
+
+					<div  class="btn-group btn-group-toggle special" data-toggle="buttons">
+							<input type="hidden" name="caminando"></input>
+							<label class="btn btn-secondary">
+									<input type="radio" name="caminando" value="Si" id="p1si" autocomplete="off"> Si
+							</label>
+							<label class="btn btn-secondary">
+									<input type="radio" name="caminando" value="No" id="p1no" autocomplete="off"> No
+							</label>
+					</div>
+					<br>
+				</div>
+
+
+				<div class="container-contact100-form-btn">
+					<button class="contact100-form-btn" onclick="answered()">
+						<span>
+							Enviar
+							<i class="fa fa-long-arrow-right m-l-7" aria-hidden="true"></i>
+						</span>
+					</button>
+				</div>
+			</form>
+		</div>
+	</div>
+
+
+
+
+
+<!--===============================================================================================-->
+	<script src="/public/vendor/jquery/jquery-3.2.1.min.js"></script>
+<!--===============================================================================================-->
+	<script src="/public/vendor/animsition/js/animsition.min.js"></script>
+<!--===============================================================================================-->
+	<script src="/public/vendor/bootstrap/js/popper.js"></script>
+	<script src="/public/vendor/bootstrap/js/bootstrap.min.js"></script>
+<!--===============================================================================================-->
+	<script src="/public/vendor/select2/select2.min.js"></script>
+
+	<script src="/public/js/map-custom.js"></script>
+<!--===============================================================================================-->
+	<script src="/public/js/main.js"></script>
+	<script src="/public/js/form.js"></script>
+
+	<script>
+	  window.dataLayer = window.dataLayer || [];
+	  function gtag(){dataLayer.push(arguments);}
+	  gtag('js', new Date());
+
+	  gtag('config', 'UA-23581568-13');
+
+	  $('.dropdown-menu a').click(function(){
+	    $('#selected').text($(this).text());
+	  });
+		window.onload = function(){
+			var today = new Date();
+			document.getElementById('fecha').innerHTML = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate() + '<br>'
+			 																						+ today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+			// var f = new Form(
+			// 	"http://localhost:3000/visitors/penguin",
+			// 	"http://localhost:3000/visitors/done");
+			// console.log(f.hasFilledForm());
+			// console.log(f.getCookies());
+			var hasAnswered = getCookie('fL');
+			console.log(hasAnswered);
+			// f.setCookie('f', 'n', 7);
+			// f.eraseCookie('f');
+			if(hasAnswered) {
+					window.location.href = "https://zoo-gdl.herokuapp.com/visitors/done";
+			}
+		}
+
+		function answered(){
+			setCookie('fL', 'y', 7);
+		}
+	</script>
+
+</body>
+</html>
