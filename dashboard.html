@@ -162,15 +162,15 @@
         table_columns.innerHTML += "<th>"+columns[i]+"</th>"
       }
       // add rows
-      for(var i =0; i<json.length; i++){
+      for(var i=0; i<json.length; i++){
         let dic = json[i];
         //console.log(dic);
 
-        let i = 0;
+        let j = 0;
         for(let key in dic){
-          let myRow = row.insertCell(i);
+          let myRow = row.insertCell(j);
           myRow.innerHTML=dic[key];
-          i++;
+          j++;
         }
         row = table.insertRow(1);
       }
@@ -186,12 +186,15 @@
 
       $.getJSON(url_pinguinos, function( json ) {
           pinguinos_json = json;
+          console.log(pinguinos_json);
       });
       $.getJSON(url_leones, function( json ) {
           leones_json = json;
+          console.log(leones_json);
       });
       $.getJSON(url_elefantes, function( json ) {
           elefantes_json = json;
+          console.log(elefantes_json);
       });
     }
     </script>
