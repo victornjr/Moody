@@ -140,7 +140,7 @@
                             'Comiendo', 'Jugando'];
 
     function populate_table(mode){
-      table.innerHTML = "<tr id="table_columns" class="clase"> </tr>";
+      table.innerHTML += '<tr id="table_columns" class="clase"> </tr>';
       let table_columns = document.getElementById("table_columns");
       let row = table.insertRow(-1);
       let json, columns;
