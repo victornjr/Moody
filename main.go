@@ -264,7 +264,7 @@ func elephant(respuesta http.ResponseWriter, solicitud *http.Request){
     // for _, elem := range solicitud.PostForm["caminando"] {
     //   fmt.Printf("val caminando: %+v\n", elem)
     // }
-    add_lion(
+    add_elephant(
       solicitud.PostForm["abanicando"][1], solicitud.PostForm["banando"][1],
       solicitud.PostForm["durmiendo"][1], solicitud.PostForm["comiendo"][1],
       solicitud.PostForm["jugando"][1])
