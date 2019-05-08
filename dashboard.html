@@ -133,21 +133,37 @@
     <script>
     var pinguinos_json, leones_json, elefantes_json;
     var table;
+    var pinguino_columns = ['Caminando', 'De pie', 'De panza', 'Limpiandose',
+                            'Limpiandose en agua', 'Nadando', 'Interactuando',
+                            'Peleando', 'Cargando piedras', 'Haciendo nidos',
+                            'Echados en nidos', 'Alimentando crias'];
+    var leon_columns = ['Dormido', 'Jugando', 'Lamiendo', 'Nadando', 'Rugiendo'];
+    var elefante_columns = ['Abanicando orejas', 'Bañando', 'Durmiendo',
+                            'Comiendo', 'Jugando'];
+
     function populate_table(mode){
       table_columns.innerHTML = "";
       let row = table.insertRow(-1);
-      let json;
+      let json, columns;
       if(mode==0){
         json = pinguinos_json;
+        columns = pinguino_columns;
       }
       else if(mode==1){
         json = leones_json;
+        columns = leon_columns;
       }
       else if(mode==2){
         json = elefantes_json;
+        columns = elefante_columns;
       }
-      for (var k =0; k<json.length;k++){
-        let dic = json[k];
+      // add header
+      for(var i =0; i<columns.length; i++){
+        table_columns.innerHTML += "<th>"+columns[i]+"</th>"
+      }
+      // add rows
+      for(var i =0; i<json.length; i++){
+        let dic = json[i];
         //console.log(dic);
 
         let i = 0;

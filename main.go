@@ -189,7 +189,7 @@ func getjson_pinguinos(respuesta http.ResponseWriter, solicitud *http.Request) {
 }
 
 func getjson_leones(respuesta http.ResponseWriter, solicitud *http.Request) {
-  results := obtain_all_leones(pinguinos_collection, ctx)
+  results := obtain_all_leones(leones_collection, ctx)
   fmt.Printf("Found multiple leones: %+v\n\n", results)
 
   myjson, _ := json.Marshal(results)
@@ -198,7 +198,7 @@ func getjson_leones(respuesta http.ResponseWriter, solicitud *http.Request) {
 }
 
 func getjson_elefantes(respuesta http.ResponseWriter, solicitud *http.Request) {
-  results := obtain_all_elefantes(pinguinos_collection, ctx)
+  results := obtain_all_elefantes(elefantes_collection, ctx)
   fmt.Printf("Found multiple elefantes: %+v\n\n", results)
 
   myjson, _ := json.Marshal(results)
